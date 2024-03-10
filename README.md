@@ -14,3 +14,7 @@ deno task start
 ```
 
 This will watch the project directory and restart as necessary.
+
+---------------
+
+Study project of chatbot with dino and ollama using [@Xe](https://github.com/Xe) project
