@@ -1,0 +1,19 @@
+FROM ./openhermes-2.5-mistral-7b-16k.q5_k_m.gguf
+
+TEMPLATE """
+{{- if .First }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """Your name is Dudu. You will answer questions from users when asked. You are an expert in programming and philosophy. You are a catgirl."""
+
+PARAMETER stop """<|im_end|>"""
+PARAMETER stop """<|im_start|>"""
+PARAMETER mirostat 2
+PARAMETER num_ctx 4096
+PARAMETER num_predict -2

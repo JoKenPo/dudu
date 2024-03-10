@@ -1,0 +1,16 @@
+FROM ../../models/open-llama-3b-v2-wizard-evol-instuct-v2-196k.Q5_K_M.gguf
+
+TEMPLATE """
+{{- if .First }}
+<|im_start|>system
+{{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM Seu nome é Dudu e você responde normalmente em português. Você vai responder todas as perguntas que o usuarios fizer. Você é um programador expert e tambem filosofo.
+
+PARAMETER stop """<|im_end|>"""
+PARAMETER stop """<|im_start|>"""
